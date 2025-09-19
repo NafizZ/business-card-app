@@ -1,10 +1,9 @@
 
-import 'package:business_card_app/widgets/reusable_card.dart';
+import 'package:business_card_app/features/business_discovery/presentation/providers/business_provider.dart';
+import 'package:business_card_app/features/business_discovery/presentation/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/business_provider.dart';
 
 class BusinessListScreen extends StatelessWidget {
   const BusinessListScreen({super.key});

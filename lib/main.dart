@@ -1,6 +1,6 @@
-import 'package:business_card_app/app_router.dart';
-import 'package:business_card_app/providers/business_provider.dart';
-import 'package:business_card_app/service_locator.dart';
+import 'package:business_card_app/core/di/service_locator.dart';
+import 'package:business_card_app/core/navigation/app_router.dart';
+import 'package:business_card_app/features/business_discovery/presentation/providers/business_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

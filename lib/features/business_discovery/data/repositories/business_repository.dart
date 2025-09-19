@@ -1,6 +1,6 @@
-import 'package:business_card_app/models/business.dart';
-import 'package:business_card_app/services/api_service.dart';
-import 'package:business_card_app/services/persistence_service.dart';
+import 'package:business_card_app/core/api/api_service.dart';
+import 'package:business_card_app/core/persistence/persistence_service.dart';
+import 'package:business_card_app/features/business_discovery/data/models/business.dart';
 
 class BusinessRepository {
   final ApiService _apiService;

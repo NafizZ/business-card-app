@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:business_card_app/models/business.dart';
+import 'package:business_card_app/features/business_discovery/data/models/business.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PersistenceService {

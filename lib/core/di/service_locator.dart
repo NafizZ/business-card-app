@@ -1,9 +1,9 @@
 
-import 'package:business_card_app/providers/business_provider.dart';
-import 'package:business_card_app/services/api_service.dart';
-import 'package:business_card_app/services/business_repository.dart';
-import 'package:business_card_app/services/local_data_interceptor.dart';
-import 'package:business_card_app/services/persistence_service.dart';
+import 'package:business_card_app/core/api/api_service.dart';
+import 'package:business_card_app/core/api/local_data_interceptor.dart';
+import 'package:business_card_app/core/persistence/persistence_service.dart';
+import 'package:business_card_app/features/business_discovery/data/repositories/business_repository.dart';
+import 'package:business_card_app/features/business_discovery/presentation/providers/business_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

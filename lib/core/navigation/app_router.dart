@@ -1,7 +1,7 @@
 
-import 'package:business_card_app/models/business.dart';
-import 'package:business_card_app/screens/business_detail_screen.dart';
-import 'package:business_card_app/screens/business_list_screen.dart';
+import 'package:business_card_app/features/business_discovery/data/models/business.dart';
+import 'package:business_card_app/features/business_discovery/presentation/screens/business_detail_screen.dart';
+import 'package:business_card_app/features/business_discovery/presentation/screens/business_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

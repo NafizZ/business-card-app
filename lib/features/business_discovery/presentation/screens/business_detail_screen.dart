@@ -1,6 +1,6 @@
 // lib/screens/business_detail_screen.dart
+import 'package:business_card_app/features/business_discovery/data/models/business.dart';
 import 'package:flutter/material.dart';
-import '../models/business.dart';
 
 class BusinessDetailScreen extends StatelessWidget {
   final Business business;

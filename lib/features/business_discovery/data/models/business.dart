@@ -1,4 +1,4 @@
-import 'package:business_card_app/models/card_view_model.dart';
+import 'package:business_card_app/features/business_discovery/data/models/card_view_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,8 @@
+
+import 'package:business_card_app/features/business_discovery/data/models/business.dart';
+import 'package:business_card_app/features/business_discovery/data/repositories/business_repository.dart';
 import 'package:flutter/material.dart';
-import '../models/business.dart';
-import '../services/business_repository.dart';
+
 
 enum AppState { initial, loading, success, error }
 

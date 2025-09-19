@@ -1,5 +1,7 @@
+
+import 'package:business_card_app/features/business_discovery/data/models/card_view_model.dart';
 import 'package:flutter/material.dart';
-import '../models/card_view_model.dart';
+
 
 class ReusableCard extends StatelessWidget {
   final CardViewModel viewModel;
