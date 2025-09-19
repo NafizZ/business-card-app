@@ -8,7 +8,7 @@ void main() {
   setupLocator();
   runApp(
     ChangeNotifierProvider(
-      create: (context) => sl<BusinessProvider>(),
+      create: (context) => sl<BusinessProvider>()..fetchBusinesses(),
       child: const MyApp(),
     ),
   );

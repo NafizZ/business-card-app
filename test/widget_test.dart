@@ -1,30 +1,44 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:business_card_app/core/di/service_locator.dart';
+import 'package:business_card_app/features/business_discovery/data/repositories/business_repository.dart';
+import 'package:business_card_app/features/business_discovery/presentation/providers/business_provider.dart';
+import 'package:business_card_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
+import 'package:mockito/mockito.dart';
 
-import 'package:business_card_app/main.dart';
+class MockBusinessRepository extends Mock implements BusinessRepository {}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  late MockBusinessRepository mockBusinessRepository;
+
+  setUp(() {
+    mockBusinessRepository = MockBusinessRepository();
+    // Clear and re-register dependencies for each test
+    if (GetIt.instance.isRegistered<BusinessRepository>()) {
+      GetIt.instance.unregister<BusinessRepository>();
+    }
+    if (GetIt.instance.isRegistered<BusinessProvider>()) {
+      GetIt.instance.unregister<BusinessProvider>();
+    }
+    sl.registerLazySingleton<BusinessRepository>(() => mockBusinessRepository);
+    sl.registerFactory<BusinessProvider>(
+        () => BusinessProvider(sl<BusinessRepository>()));
+  });
+
+  tearDown(() {
+    GetIt.instance.reset();
+  });
+
+  testWidgets('App shows Business Finder title', (WidgetTester tester) async {
+    // Arrange
+    when(mockBusinessRepository.getBusinesses()).thenAnswer((_) async => []);
+
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Assert
+    expect(find.text('Business Finder'), findsOneWidget);
   });
 }

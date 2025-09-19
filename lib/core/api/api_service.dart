@@ -1,13 +1,14 @@
+import 'package:business_card_app/core/api/dio_client.dart';
 import 'package:business_card_app/features/business_discovery/data/models/business.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final Dio _dio;
+  final DioClient _dioClient;
 
-  ApiService(this._dio);
+  ApiService(this._dioClient);
   Future<List<Business>> fetchBusinesses() async {
     try {
-      final response = await _dio.get('/businesses');
+      final response = await _dioClient.get('/businesses');
 
       final List<dynamic> jsonList = response.data;
 

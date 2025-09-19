@@ -9,9 +9,7 @@ enum AppState { initial, loading, success, error }
 class BusinessProvider with ChangeNotifier {
   final BusinessRepository _repository;
 
-  BusinessProvider(this._repository) {
-    fetchBusinesses();
-  }
+  BusinessProvider(this._repository);
 
   AppState _state = AppState.initial;
   AppState get state => _state;
