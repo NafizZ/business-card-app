@@ -1,22 +1,14 @@
+import 'package:business_card_app/app_router.dart';
 import 'package:business_card_app/providers/business_provider.dart';
-import 'package:business_card_app/screens/business_list_screen.dart';
-import 'package:business_card_app/services/api_service.dart';
-import 'package:business_card_app/services/business_repository.dart';
-import 'package:business_card_app/services/local_data_interceptor.dart';
-import 'package:business_card_app/services/persistence_service.dart';
-import 'package:dio/dio.dart';
+import 'package:business_card_app/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  final dio = Dio()..interceptors.add(LocalDataInterceptor());
-  final apiService = ApiService(dio);
-  final persistenceService = PersistenceService();
-  final businessRepository = BusinessRepository(apiService, persistenceService);
-
+  setupLocator();
   runApp(
     ChangeNotifierProvider(
-      create: (context) => BusinessProvider(businessRepository),
+      create: (context) => sl<BusinessProvider>(),
       child: const MyApp(),
     ),
   );
@@ -27,7 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       title: 'Business Card App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -42,7 +35,6 @@ class MyApp extends StatelessWidget {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
-      home: const BusinessListScreen(),
     );
   }
 }

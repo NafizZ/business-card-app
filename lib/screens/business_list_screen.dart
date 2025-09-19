@@ -1,9 +1,10 @@
+
 import 'package:business_card_app/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/business_provider.dart';
-import 'business_detail_screen.dart';
 
 class BusinessListScreen extends StatelessWidget {
   const BusinessListScreen({super.key});
@@ -104,10 +105,11 @@ class BusinessListScreen extends StatelessWidget {
         return ReusableCard(
           viewModel: business,
           onTap: () {
-            Navigator.of(context).push(BusinessDetailScreen.route(business));
+            context.go('/details', extra: business);
           },
         );
       },
     );
   }
 }
+

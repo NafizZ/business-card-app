@@ -14,9 +14,9 @@ class Business extends Equatable implements CardViewModel {
   });
 
   factory Business.fromJson(Map<String, dynamic> json) {
-    final name = json['biz_name'] ?? '';
-    final location = json['bss_location'] ?? '';
-    final contactNumber = json['contct_no'] ?? '';
+    final String name = json['biz_name'] ?? '';
+    final String location = json['bss_location'] ?? '';
+    final String contactNumber = json['contct_no'] ?? '';
 
     if (name.isEmpty || location.isEmpty || contactNumber.isEmpty) {
       throw FormatException('missing fields in JSON data');
